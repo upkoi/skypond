@@ -1,0 +1,9 @@
+pandas
+scipy
+flask
+tensorflow
+keras
+h5py
+gym
+keras-rl
+requests
