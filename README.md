@@ -49,7 +49,7 @@ At the moment this library is biased towards T[AI]L and -a starting agent - Four
 Please reach out to rob@upkoi.com for any questions or comments.
 
 ## Acknowledgments
-The idea of using a docker instance for the agent came from Pommerman and Duckietown at NeurIPS 2018. The initial game, Four Keys, is heavily influenced by the starting grid world environments offered by OpenAI Gym as well as the fantastic MiniGrid environment. Lastly, the core PPO engine provided in the RL example builds on top of the Torch AC library.
+The idea of using a docker instance for the agent in this project came from Pommerman and Duckietown at NeurIPS 2018. The initial game, Four Keys, is heavily influenced by the starting grid world environments offered by OpenAI Gym as well as the fantastic MiniGrid environment. Lastly, the core PPO engine provided in the RL example builds on top of the Torch AC library.
 
 * [Pommerman](https://github.com/MultiAgentLearning/playground)
 * [Duckietown](https://github.com/duckietown)
