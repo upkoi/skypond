@@ -191,6 +191,7 @@ class MultiAgentCoordinator(gym.Env):
     # Pass in temp directory path as staging_path outside of production
     # If reuse_loaded_instance is set to true it will assume the loaded docker instance is still OK
     # If verification_callback is provided the agent is handed to that function and only added if it returns True
+    # Note: ideally source_path is always the same for the same agent (handled with an agent hash based path during the competition)
     def add_isolated_agent(self,source_path,staging_path='/var/skypond/',reuse_loaded_instance=False,verification_callback=None):
 
         if source_path in self.successfully_loaded_media:
@@ -274,7 +275,12 @@ class MultiAgentCoordinator(gym.Env):
 
         self.debug('Adding...')
 
-        self.add_agent(agent)
+        try:
+            self.add_agent(agent)
+        except:
+            self.debug('Failed to add agent. Likely bad agent handler.')
+            return
+
         self.successfully_loaded_media.append(source_path)
 
         return agent
@@ -318,7 +324,7 @@ class MultiAgentCoordinator(gym.Env):
 
             if self.saved_env_with_name(env.status['name']):
                 for i in range(8):
-                    suffix = ' [%i]' % i+1
+                    suffix = ' [%i]' % (i+1)
                     name = env.status['name'] + suffix
 
                     if not self.saved_env_with_name(name):
