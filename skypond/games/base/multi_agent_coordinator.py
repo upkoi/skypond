@@ -77,6 +77,20 @@ class MultiAgentCoordinator(gym.Env):
         if self.debug_messages:
             print('[SKYPOND][Debug] ' + message)
 
+    # Checks for local execution environment image
+    def has_host_image(self):
+        client = docker.from_env()
+        try:
+            client.images.get(self.image)
+            return True
+        except:
+            return False
+
+    # Pulls down the current execution environment image
+    def pull_host_image(self):
+        client = docker.from_env()
+        client.images.pull(self.image)
+
     # Creates an (unsecure/easily reproducible given salt) hash for a given agent
     def get_agent_verification_code(self,agent):
         description = agent.describe()
