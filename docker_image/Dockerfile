@@ -28,6 +28,8 @@ RUN apt-get update \
         libopenblas-base  \
         libatlas-dev  \
         cython3  \
+        nodejs  \
+        ruby  \
      && apt-get clean \
      && rm -rf /var/lib/apt/lists/*
 
