@@ -45,6 +45,7 @@ RUN pip install -r /app/requirements.txt
 
 RUN pip install https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp35-cp35m-linux_x86_64.whl
 RUN pip install torchvision torch-ac>=1.0.2
+RUN pip install Naked
 
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
